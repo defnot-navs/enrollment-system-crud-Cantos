@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enrollment System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 🎨 Background color picker -->
+  <input type="color" 
+         oninput="document.body.style.background=`linear-gradient(45deg, ${this.value}, white)`">
+
+  <!-- 🌐 Navigation Bar -->
+  <nav>
+    <a href="#" onclick="showSection('students')">Students</a>
+    <a href="#" onclick="showSection('programs')">Programs</a>
+    <a href="#" onclick="showSection('subjects')">Subjects</a>
+    <a href="#" onclick="showSection('semesters')">Semesters</a>
+    <a href="#" onclick="showSection('years')">Years</a>
+    <a href="#" onclick="showSection('enrollments')">Enrollments</a>
+  </nav>
+
+  <!-- ================= STUDENTS SECTION ================= -->
+  <section id="students" class="active">
+    <h2>Student List</h2>
+    <button onclick="openForm('studentFormWrapper')">➕ Add Student</button>
+    <table id="studentsTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Program</th>
+          <th>Allowance</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    
+  </section>
+
+  <div id="studentFormWrapper" class="floating-form">
+    <h2>Add Student</h2>
+    <form id="studentForm">
+     <label>Student ID: <input type="number" id="stud_id" required></label><br>
+      <label>First Name: <input type="text" id="first_name" required></label>
+      <label>Last Name: <input type="text" id="last_name" required></label>
+      <label>Middle Initial: <input type="text" id="middle_initial" maxlength="1"></label>
+      <label>Program:
+        <select id="program" required></select>
+      </label>
+      <label>Allowance: <input type="number" id="allowance" required></label>
+      <button type="submit">Add Student</button>
+      <button type="button" onclick="closeForm('studentFormWrapper')">Cancel</button>
+    </form>
+  </div>
+
+  <!-- ================= PROGRAMS SECTION ================= -->
+  <section id="programs">
+    <h2>Program List</h2>
+    <button onclick="openForm('programFormWrapper')">➕ Add Program</button>
+    <table id="programsTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Program Name</th>
+          <th>Institute</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    
+  </section>
+
+  <div id="programFormWrapper" class="floating-form">
+    <h2>Add Program</h2>
+    <form id="programForm">
+      <label>Program ID: <input type="number" id="program_id" required></label>
+      <label>Program Name: <input type="text" id="programName" required></label>
+      <label>Institute ID: <input type="number" id="insId" required></label>
+      <button type="submit">Add Program</button>
+      <button type="button" onclick="closeForm('programFormWrapper')">Cancel</button>
+    </form>
+  </div>
+
+  <!-- ================= SUBJECTS SECTION ================= -->
+  <section id="subjects">
+    <h2>Subjects</h2>
+    <button onclick="openForm('subjectFormWrapper')">➕ Add Subject</button>
+    <table id="subjectTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Subject Name</th>
+          <th>Semester</th>
+          <th>Year</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    
+  </section>
+
+  <div id="subjectFormWrapper" class="floating-form">
+    <h2>Add Subject</h2>
+    <form id="subjectForm">
+      <label>Subject ID: <input type="number" id="subject_id" required></label>
+      <label>Subject Name: <input type="text" id="subjectName" required></label>
+      <label>Semester: <select id="semId" required></select></label>
+      <label>Year: <select id="yearId" required></select></label>
+      <button type="submit">Add Subject</button>
+      <button type="button" onclick="closeForm('subjectFormWrapper')">Cancel</button>
+    </form>
+  </div>
+
+  <!-- ================= SEMESTERS SECTION ================= -->
+  <section id="semesters">
+    <h2>Semesters</h2>
+    <button onclick="openForm('semesterFormWrapper')">➕ Add Semester</button>
+    <table id="semestersTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Semester Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    
+  </section>
+
+  <div id="semesterFormWrapper" class="floating-form">
+    <h2>Add Semester</h2>
+    <form id="semesterForm">
+      <label>Semester ID: <input type="number" id="sem_id" required></label>
+      <label>Semester Name: <input type="text" id="sem_name" required></label>
+      <button type="submit">Add Semester</button>
+      <button type="button" onclick="closeForm('semesterFormWrapper')">Cancel</button>
+    </form>
+  </div>
+
+  <!-- ================= YEARS SECTION ================= -->
+  <section id="years">
+    <h2>Years</h2>
+     <button onclick="openForm('yearFormWrapper')">➕ Add Year</button>
+    <table id="yearsTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Year From</th>
+          <th>Year To</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+   
+  </section>
+
+  <div id="yearFormWrapper" class="floating-form">
+    <h2>Add Year</h2>
+    <form id="yearForm">
+      <label>Year ID: <input type="number" id="year_id" required></label>
+      <label>From: <input type="number" id="year_from" required></label>
+      <label>To: <input type="number" id="year_to" required></label>
+      <button type="submit">Add Year</button>
+      <button type="button" onclick="closeForm('yearFormWrapper')">Cancel</button>
+    </form>
+  </div>
+
+  <!-- ================= ENROLLMENTS SECTION ================= -->
+  <section id="enrollments">
+    <h2>Enrollments</h2>
+        <button onclick="openForm('enrollmentFormWrapper')">➕ Add Enrollment</button>
+    <table id="enrollmentsTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Student</th>
+          <th>Program</th>
+          <th>Subject</th>
+          <th>Year</th>
+          <th>Semester</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+
+  </section>
+
+<div id="enrollmentFormWrapper" class="floating-form">
+  <h2 id="enrollmentFormTitle">Add Enrollment</h2>
+  <form id="enrollmentForm">
+    <input type="hidden" id="enrollment_id" /> <!-- hidden ID for edit mode -->
+
+    <label>Student: 
+      <select id="enroll_student" required></select>
+    </label>
+    <label>Subject: 
+      <select id="enroll_subject" required></select>
+    </label>
+    <label>Program: 
+      <select id="enroll_program" required></select>
+    </label>
+
+    <button type="submit">Add Enrollment</button>
+    <button type="button" onclick="closeForm('enrollmentFormWrapper')">Cancel</button>
+  </form>
+</div>
+
+
+  <!-- External App Script -->
+  <script src="js/appScript.js"></script>
+  <script>
+    function openForm(id) {
+      document.getElementById(id).classList.add("active");
+    }
+    function closeForm(id) {
+      document.getElementById(id).classList.remove("active");
+      document.querySelector(`#${id} form`).reset();
+    }
+  </script>
+</body>
+</html>
